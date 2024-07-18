@@ -23,7 +23,7 @@ def vote(request):
 def success(request):
     return render(request, 'voting_app/success.html')
 
-
+import json
 def histogram(request):
     # Query the database to get the votes
     votes = Vote.objects.values_list('choice', flat=True)
@@ -31,21 +31,8 @@ def histogram(request):
     # Count the occurrences of each candidate
     candidate_counts = dict(Counter(votes))
 
-    # Plotting the histogram
-    plt.bar(candidate_counts.keys(), candidate_counts.values())
-    plt.xlabel('Candidates')
-    plt.ylabel('Votes Count')
-    plt.title('Votes Histogram')
+    # Format data for D3.js
+    plot_data = [{'choice': k, 'votes': v} for k, v in candidate_counts.items()]
 
-    # Save plot to a BytesIO object
-    buffer = BytesIO()
-    plt.savefig(buffer, format='png')
-    buffer.seek(0)
-
-    # Encode plot to base64 string
-    plot_data = base64.b64encode(buffer.getvalue()).decode()
-
-    plt.close()
-
-    # Render template with base64 encoded plot
-    return render(request, 'voting_app/histogram.html', {'plot_data': plot_data})
+    # Render template with data
+    return render(request, 'voting_app/histogram.html', {'plot_data': json.dumps(plot_data)})
