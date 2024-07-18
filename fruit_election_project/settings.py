@@ -106,7 +106,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     # or BASE_DIR / "path/to/static" if your static files are not in the root
-    BASE_DIR / "api" / "static",
+    BASE_DIR / "fruit_election_project" / "static",
 ]
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
