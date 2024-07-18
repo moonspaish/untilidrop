@@ -2,7 +2,10 @@
     "builds": [
         {
             "src": "build_files.sh",
-            "use": "@vercel/static-build"
+            "use": "@vercel/static-build",
+            "config": {
+                "distDir": "staticfiles"
+            }
         },
         {
             "src": "fruit_election_project/wsgi.py",
