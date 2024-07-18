@@ -1,10 +1,6 @@
 from collections import Counter
 from django.shortcuts import render
-import matplotlib.pyplot as plt
 from .models import Vote
-from django.http import HttpResponse
-import base64
-from io import BytesIO
 from django.shortcuts import render, redirect
 from .forms import VoteForm
 
