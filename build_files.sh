@@ -15,7 +15,6 @@ python3.9 -m venv venv
 source venv/bin/activate
 
 # Upgrade pip to ensure we have the latest version
-pip install --upgrade pip
 
 # Install dependencies with increased verbosity
 pip install -r requirements.txt --verbose
