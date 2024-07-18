@@ -1,6 +1,6 @@
 
 # Create and activate virtual environment
-python -m venv venv
+python3.9 -m venv venv
 source venv/bin/activate
 
 # Upgrade pip to ensure we have the latest version
@@ -9,5 +9,5 @@ source venv/bin/activate
 pip install -r requirements.txt --verbose
 
 # Run Django commands
-python manage.py collectstatic --noinput
-python manage.py migrate
+python3.9 manage.py collectstatic --noinput
+python3.9 manage.py migrate
